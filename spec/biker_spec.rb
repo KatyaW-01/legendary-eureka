@@ -31,6 +31,9 @@ RSpec.describe Biker do
       expect(@biker.acceptable_terrain).to eq([:gravel, :hills])
     end
     it 'can log rides' do
+      @biker.learn_terrain(:gravel)
+      @biker.learn_terrain(:hills)
+
       ride1 = Ride.new({name: "Walnut Creek Trail", distance: 10.7, loop: false, terrain: :hills})
       ride2 = Ride.new({name: "Town Lake", distance: 14.9, loop: true, terrain: :gravel})
 
@@ -43,7 +46,7 @@ RSpec.describe Biker do
         ride1 => [92.5, 91.1],
         ride2 => [60.9, 61.6]
       }
-      
+
       expect(@biker.rides).to eq(expected)
     end
   end
