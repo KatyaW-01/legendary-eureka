@@ -46,4 +46,8 @@ class BikeClub
     fastest_biker[0]
   end
 
+  def bikers_eligible(ride)
+    
+  end
+
 end
