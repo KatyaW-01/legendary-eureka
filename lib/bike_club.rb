@@ -37,7 +37,13 @@ class BikeClub
       end
     end
     results
-    #binding.pry
+  end
+
+  def best_time(ride)
+    fastest_biker = best_time_helper(ride).min_by do |biker,time|
+      time
+    end
+    fastest_biker[0]
   end
 
 end
