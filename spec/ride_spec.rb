@@ -22,6 +22,17 @@ RSpec.describe Ride do
 
       expect(ride1.terrain).to eq(:hills)
     end
-   
+  end
+  describe "#methods" do
+    it 'returns true/false if a loop' do
+      ride1 = Ride.new({name: "Walnut Creek Trail", distance: 10.7, loop: false, terrain: :hills})
+
+      expect(ride1.loop?).to eq(false)
+    end
+    it 'has a total distance' do
+      ride1 = Ride.new({name: "Walnut Creek Trail", distance: 10.7, loop: false, terrain: :hills})
+
+      expect(ride1.total_distance).to eq(21.4)
+    end
   end
 end
