@@ -16,6 +16,12 @@ RSpec.describe Biker do
     it 'has a maximum distance' do
       expect(@biker.max_distance).to eq(30)
     end
+    it 'is initialized with an empty hash of rides' do
+      expect(@biker.rides).to eq({})
+    end
+    it 'is initialized with an empty array of acceptable terrain' do
+      expect(@biker.acceptable_terrain).to eq([])
+    end
   end
 
 end
