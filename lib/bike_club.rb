@@ -48,7 +48,7 @@ class BikeClub
 
   def bikers_eligible(ride)
     @bikers.find_all do |biker|
-      (biker.acceptable_terrain.include?(ride.terrain)) && (ride.total_distance < biker.max_distance)
+      (biker.acceptable_terrain.include?(ride.terrain)) && (ride.total_distance <= biker.max_distance)
     end
   end
 
