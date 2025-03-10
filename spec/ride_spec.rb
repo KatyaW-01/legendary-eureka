@@ -1,4 +1,5 @@
 require './lib/ride'
+require 'pry'
 
 RSpec.describe Ride do
   describe "#initialize" do
