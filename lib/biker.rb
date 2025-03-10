@@ -21,4 +21,8 @@ class Biker
     end
   end
 
+  def personal_record(ride)
+    
+  end
+
 end
