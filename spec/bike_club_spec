@@ -14,5 +14,19 @@ RSpec.describe BikeClub do
     it 'has a name' do
       expect(@club.name).to eq("The Rainbow Sprinkles")
     end
+    it 'has an array of bikers' do
+      expect(@club.bikers).to eq([])
+    end
+  end
+  describe "#methods" do
+    it 'can add bikers' do
+      biker1 = Biker.new("Kenny", 30)
+      biker2 = Biker.new("Athena", 15)
+
+      @club.add_biker(biker1)
+      @club.add_biker(biker2)
+
+      expect(@club.bikers).to eq([biker1,biker2])
+    end
   end
 end
