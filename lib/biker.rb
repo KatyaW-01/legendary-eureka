@@ -22,7 +22,12 @@ class Biker
   end
 
   def personal_record(ride)
-    
+    if @rides.include?(ride)
+      times = @rides[ride]
+      times.min
+    else
+      false
+    end
   end
 
 end
