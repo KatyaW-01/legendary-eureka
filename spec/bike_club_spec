@@ -84,7 +84,7 @@ RSpec.describe BikeClub do
       expect(@club.most_rides).to eq(biker1)
     end
 
-    it 'can identify the biker with the best time for a given ride' do
+    it 'can create a hash of bikers best times for a given ride' do
       biker1 = Biker.new("Kenny", 30)
       biker2 = Biker.new("Athena", 15)
 
@@ -107,7 +107,14 @@ RSpec.describe BikeClub do
       @club.add_biker(biker1)
       @club.add_biker(biker2)
 
-      expect(@club.best_time(ride2)).to eq(biker2)
+      expected = {
+        biker1 => 66.6,
+        biker2 => 65.0
+      }
+
+      expect(@club.best_time_helper(ride2)).to eq(expected)
     end
+
+    it 'can tell which biker has the best time for a given ride'
   end
 end

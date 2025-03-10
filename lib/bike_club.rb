@@ -29,4 +29,15 @@ class BikeClub
     superior_biker[0]
   end
 
+  def best_time_helper(ride)
+    results = {}
+    @bikers.each do |biker|
+      if results[biker].nil?
+        results[biker] = biker.rides[ride].min
+      end
+    end
+    results
+    #binding.pry
+  end
+
 end
