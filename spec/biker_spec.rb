@@ -49,6 +49,27 @@ RSpec.describe Biker do
 
       expect(@biker.rides).to eq(expected)
     end
+    it 'will only add rides with acceptable terrain and distance' do
+      ride1 = Ride.new({name: "Walnut Creek Trail", distance: 10.7, loop: false, terrain: :hills})
+      ride2 = Ride.new({name: "Town Lake", distance: 14.9, loop: true, terrain: :gravel})
+
+      biker2 = Biker.new("Athena", 15)
+
+      biker2.log_ride(ride1, 97.0)
+      biker2.log_ride(ride2, 67.0)
+
+      expect(biker2.rides).to eq({})
+
+      biker2.learn_terrain(:gravel)
+      biker2.learn_terrain(:hills)
+
+      biker2.log_ride(ride1, 95.0)
+      biker2.log_ride(ride2, 65.0)
+
+      expect(biker2.rides).to eq({ride2 => [65.0]})
+
+
+    end
   end
 
 end
